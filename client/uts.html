@@ -1,0 +1,44 @@
+<head>
+  <title>uTS</title>
+</head>
+
+<body>
+  <div id="main">
+    {{> main}}
+  </div>
+</body>
+
+<template name="main">
+  {{#if user}}
+    {{> posts}}
+  {{else}}
+    {{> login}}
+  {{/if}}
+</template>
+
+<template name="posts">
+  <u1>
+    <li>
+      [{{user}}] <input type="text" id="new-post" placeholder="New Post" />
+      <button>post</button>
+    </li>
+  </u1>
+  {{#each posts}}
+    <u1>
+      {{> post}}
+    </u1>
+  {{/each}}
+</template>
+
+<template name="post">
+  <li>
+  [{{author}}] {{text}} ({{time}})
+  </li>
+</template>
+
+<template name="login">
+  input username!
+  <input class="username-input" id="username-input" type="text" value="{{user}}" />
+  <button>login</button>
+</template>
+
